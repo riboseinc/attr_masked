@@ -12,7 +12,7 @@ RSpec.configure do |config|
     # Therefore, they are specified explicitly here.
     unless WITHOUT_MONGOID
       require "database_cleaner-mongoid"
-      DatabaseCleaner[:mongoid].strategy = :truncation, { only: "users" }
+      DatabaseCleaner[:mongoid].strategy = :deletion, { only: %w[users] }
     end
 
     DatabaseCleaner.clean_with(:truncation)
